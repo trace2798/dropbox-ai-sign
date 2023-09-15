@@ -10,18 +10,17 @@ const accountInfo = async () => {
     const accountApi = new DropboxSign.AccountApi();
 
     // Configure HTTP basic authorization: api_key
-    accountApi.username =
-      "448c4cc76921cc4201b3551faebf787e1acdb86759dde77ec16b5507e7beb61a";
+    accountApi.username = process.env.API_KEY ?? "";
 
     // or, configure Bearer (JWT) authorization: oauth2
     // accountApi.accessToken = "YOUR_ACCESS_TOKEN";
 
     const result = accountApi.accountGet(
       undefined,
-      "shreyaschaliha27@protonmail.com"
+      "MY_EMAIL_ADDRESS"
     );
 
-    return console.log("Connected to MindsDB");
+    return console.log(result);
   } catch (error: any) {
     return error;
   }
